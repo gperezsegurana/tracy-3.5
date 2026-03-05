@@ -36,7 +36,7 @@ LOCAL = /usr/local/opt
 LIBS =	$(TRACY_LIB)/tracy/lib/libtracy_ptc.a \
 	$(THOR_LIB)/thor/lib/libTPSALib.a $(THOR_LIB)/thor/lib/libLieLib.a \
 	-L$(NUM_REC)/lib -lnum_rec \
-	-L$(LOCAL)/gsl/lib -lgsl \
+	-L$(LOCAL)/gsl/lib -lgsl -lgslcblas\
 	-L$(LOCAL)/gfortran/lib/gcc/current -lgfortran
 
 # Load flags.

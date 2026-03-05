@@ -64,12 +64,15 @@ tst_drv_terms_SOURCES     = tst_drv_terms.cc
 for_stephen_SOURCES       = for_stephen.cc
 prt_kick_map_SOURCES      = prt_kick_map.cc
 
-LOCAL = /usr/local/opt
+
 
 # Explicit reference to libc++ required for CC front-end vs. C++.
-LIBS =	-L$(TRACY_LIB)/tracy/lib -ltracy \
-	-L$(NUM_REC)/lib -lnum_rec \
-	-L$(LOCAL)/gsl/lib -lgsl
+LIBS	    = -L$(TRACY_LIB)/tracy/lib \
+              -L$(TRACY_LIB)/tracy/lib64 \
+              -ltracy \
+              -L$(NUM_REC)/lib -lnum_rec \
+              -lstdc++ \
+	      -lgsl -lgslcblas
 
 # Enduser flags.
 
@@ -89,5 +92,3 @@ AM_CXXFLAGS = \
 	-D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fPIC
 #CXXFLAGS = -pg -O0 -Wall -Wno-non-template-friend
 
-# For Macbook.
-AM_LDFLAGS = @MAC_LDFLAGS@
