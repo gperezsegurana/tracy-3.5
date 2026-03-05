@@ -9,19 +9,22 @@ ps = $prm1;
 file_name = "drv_terms.out";
 
 f_s = 24; l_w = 2;
+# Fixed 4:3 figure size (pixels and inches)
+fig_w_px = 800; fig_h_px = 600;
+fig_w_in = 8; fig_h_in = 6;
 if (ps == 0) \
-  set terminal qt 0 font "Sans, 9"; \
+  set terminal qt 0 font "Sans, 9" size fig_w_px,fig_h_px; \
 else if (ps == 1) \
-  set terminal postscript enhanced color solid lw l_w "Times-Roman" f_s; \
+  set terminal postscript enhanced color solid lw l_w "Times-Roman" f_s size fig_w_in,fig_h_in; \
   ext = "ps"; \
 else if (ps == 2) \
-  set terminal postscript eps enhanced color solid lw l_w "Times-Roman" f_s; \
+  set terminal postscript eps enhanced color solid lw l_w "Times-Roman" f_s size fig_w_in,fig_h_in; \
   ext = "eps"; \
 else if (ps == 3) \
-  set terminal pdf enhanced color solid lw l_w font "Times-Roman f_s"; \
+  set terminal pdf enhanced color solid lw l_w font "Times-Roman f_s" size fig_w_in,fig_h_in; \
   ext = "pdf"; \
 else if (ps == 4) \
-  set term pngcairo enhanced color solid lw l_w font "Times-Roman f_s"; \
+  set term pngcairo enhanced color solid lw l_w font "Times-Roman f_s" size fig_w_px,fig_h_px; \
   ext = "png";
 
 # left adjusted labels

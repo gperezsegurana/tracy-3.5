@@ -23,19 +23,22 @@ file32 = (home_dir)."chrom2_pert.out"
 
 f_s = 36
 l_w = 2
+# Fixed 4:3 figure size (pixels and inches)
+fig_w_px = 800; fig_h_px = 600;
+fig_w_in = 8; fig_h_in = 6;
 if (ps == 0) \
-  set terminal qt 0 font "Sans, 9"; \
+  set terminal qt 0 font "Sans, 9" size fig_w_px,fig_h_px; \
 else if (ps == 1) \
-  set terminal postscript enhanced color solid lw l_w "Times-Roman" f_s; \
+  set terminal postscript enhanced color solid lw l_w "Times-Roman" f_s size fig_w_in,fig_h_in; \
   ext = "ps"; \
 else if (ps == 2) \
-  set terminal postscript eps enhanced color solid lw l_w "Times-Roman" f_s; \
+  set terminal postscript eps enhanced color solid lw l_w "Times-Roman" f_s size fig_w_in,fig_h_in; \
   ext = "eps"; \
 else if (ps == 3) \
-  set terminal pdf enhanced color solid linewidth l_w font "Times-Roman f_s"; \
+  set terminal pdf enhanced color solid linewidth l_w font "Times-Roman f_s" size fig_w_in,fig_h_in; \
   ext = "pdf"; \
 else if (ps == 4) \
-  set term pngcairo enhanced color solid lw l_w font "Times-Roman f_s"; \
+  set term pngcairo enhanced color solid lw l_w font "Times-Roman f_s" size fig_w_px,fig_h_px; \
   ext = "png";
 
 if ((N == 1) && (case == 1)) \
@@ -46,6 +49,8 @@ else if ((N == 20) && (case == 1)) \
   N_x = 2; N_y = 0; \
 else if ((N == 20) && (case == 2)) \
   N_x = 2; N_y = 0; \
+else if ((N == 20) && (case == 3)) \
+  N_x = 3; N_y = 1; \
 else if ((N == 13) && (case == 1)) \
   N_x = 2; N_y = 0; \
 else if ((N == 2) && (case == 1)) \
