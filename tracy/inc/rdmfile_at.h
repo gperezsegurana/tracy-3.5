@@ -8,9 +8,9 @@
 
 */
 
-#ifndef RDMFILE_NEW_H
-#define RDMFILE_NEW_H
+#ifndef RDMFILE_AT_H
+#define RDMFILE_AT_H
 
-void rdmfile_new(const char *mfile_dat);
+void rdmfile_at(const string &file_name);
 
 #endif
