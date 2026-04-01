@@ -1,17 +1,17 @@
 #!/bin/sh
 
-prm1=${1-0}
+prm1=${1:-""}
+prm2=${2:-0}
 
 gnuplot << EOP
 
-ps = $prm1;
+home_dir = "$prm1"
+ps       = $prm2
 
-file_name = "drv_terms.out";
+file_name = home_dir."drv_terms.out";
 
-f_s = 24; l_w = 2;
-# Fixed 4:3 figure size (pixels and inches)
-fig_w_px = 800; fig_h_px = 600;
-fig_w_in = 8; fig_h_in = 6;
+f_s = 24;
+l_w = 2;
 if (ps == 0) \
   set terminal qt 0 font "Sans, 9" size fig_w_px,fig_h_px; \
 else if (ps == 1) \
@@ -108,7 +108,7 @@ plot file_name using 2:3 axis x1y2 notitle with fsteps lt 1 lw 1 \
      file_name using 2:26 title "h_{41000}" with steps ls 2, \
      file_name using 2:27 title "h_{32000}" with steps ls 3, \
      file_name using 2:28 title "h_{30200}" with steps ls 4, \
-     file_name using 2:27 title "h_{21200}" with steps ls 5, \
+     file_name using 2:29 title "h_{21200}" with steps ls 5, \
      file_name using 2:30 title "h_{10400}" with steps ls 6, \
      file_name using 2:31 title "h_{30110}" with steps ls 7, \
      file_name using 2:32 title "h_{21110}" with steps ls 8, \
